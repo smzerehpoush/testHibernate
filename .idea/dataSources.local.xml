@@ -6,5 +6,9 @@
       <secret-storage>master_key</secret-storage>
       <user-name>mahdiyar</user-name>
     </data-source>
+    <data-source name="META-INF:hibernate.cfg.xml/Hibernate" uuid="1dab4d25-8bb1-4f45-8a43-bca6a6dacee6">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>mahdiyar</user-name>
+    </data-source>
   </component>
 </project>
