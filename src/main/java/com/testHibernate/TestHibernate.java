@@ -1,5 +1,6 @@
 package com.testHibernate;
 
+
 import org.hibernate.Session;
 
 public class TestHibernate {
@@ -17,6 +18,7 @@ public class TestHibernate {
         emp.setEmail("mahdiyar"+System.currentTimeMillis() +"@gmail.com");
         session.saveOrUpdate(emp);
         session.getTransaction().commit();
+        session.close();
         HibernateUtil.shutdown();
     }
 }
