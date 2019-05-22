@@ -1,32 +1,44 @@
 package com.testHibernate;
 
+
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "employee",schema = "hibnet",uniqueConstraints = {
-        @UniqueConstraint(columnNames = "id"),
-        @UniqueConstraint(columnNames = "email")
-})
+@Table(name = "EMPLOYEE")
 public class EmployeeEntity implements Serializable {
-    private static final String tableName="employee";
+    private String id;
+    private String name;
+    private String email;
+    private Set<LessonEntity> lessons= new HashSet<>();
+
+    public EmployeeEntity() {
+    }
+
+    public EmployeeEntity(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    @ManyToMany(targetEntity = LessonEntity.class)
+    @JoinTable(name = "EMPLOYEE_LESSON",joinColumns = {@JoinColumn(name = "LESSON_ID")},inverseJoinColumns = {@JoinColumn(name = "EMPLOYEE_ID")})
+    public Set<LessonEntity> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Set<LessonEntity> lessons) {
+        this.lessons = lessons;
+    }
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid",strategy = "uuid2")
-    @Column(name = "id",unique = true,table = tableName)
-    private String id;
-    @Column(name = "first_name",length = 100,table = tableName)
-    private String firstName;
-    @Column(name = "last_Name",length = 100,table = tableName)
-    private String lastName;
-    @Column(name = "email",unique = true,table = tableName)
-    private String email;
-    @Column(name = "date",table = tableName)
-    private Date date = new Date();
-
+    @Column(name = "EMPLOYEE_ID",unique = true)
     public String getId() {
         return id;
     }
@@ -35,22 +47,16 @@ public class EmployeeEntity implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Column(name = "NAME",unique = true)
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String lastName) {
+        this.name = lastName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+    @Column(name = "EMAIL")
     public String getEmail() {
         return email;
     }

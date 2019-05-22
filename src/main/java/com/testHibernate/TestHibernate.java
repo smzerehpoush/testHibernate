@@ -3,22 +3,17 @@ package com.testHibernate;
 
 import org.hibernate.Session;
 
+import java.util.Random;
+
 public class TestHibernate {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-        EmployeeEntity emp = new EmployeeEntity();
-        emp.setEmail("demo-user"+ System.currentTimeMillis() +"@mail.com");
-        emp.setFirstName("demo");
-        emp.setLastName("user");
-        session.save(emp);
-        session.getTransaction().commit();
-        session = HibernateUtil.getSession();
-        session.beginTransaction();
-        emp.setEmail("mahdiyar"+System.currentTimeMillis() +"@gmail.com");
-        session.saveOrUpdate(emp);
+        EmployeeEntity employeeEntity = new EmployeeEntity("mahdiyar","a@b.c");
+        session.persist(employeeEntity);
         session.getTransaction().commit();
         session.close();
+
         HibernateUtil.shutdown();
     }
 }
