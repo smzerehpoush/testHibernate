@@ -5,14 +5,18 @@ import org.hibernate.Session;
 
 public class Main {
     public static void main(String[] args) {
-        Member m = new Member();
-        m.setName("ali");
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-        session.save(m);
+        Member member = new Member();
+        member.setName("ali");
+        Address address = new Address();
+        address.setCity("tehran");
+        address.setStreet("vali-asr");
+        member.setAddress(address);
+        session.save(address);
+        session.save(member);
         session.getTransaction().commit();
         session.close();
-//        Address address = new Address();
-//        address.setCity();
+
     }
 }
