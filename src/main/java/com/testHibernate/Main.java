@@ -6,5 +6,6 @@ public class Main {
         com.testHibernate.oneToMany.Main.main(args);
         com.testHibernate.manyToOne.Main.main(args);
         com.testHibernate.manyToMany.Main.main(args);
+        com.testHibernate.embedded.Main.main(args);
     }
 }
