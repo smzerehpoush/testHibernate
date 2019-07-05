@@ -16,6 +16,10 @@
         <property name="format_sql">true</property>
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="com.testHibernate.embedded.Address"/>
+        <mapping class="com.testHibernate.embedded.Member"/>
+
         <mapping class="com.testHibernate.oneToOne.Address"/>
         <mapping class="com.testHibernate.oneToOne.Member"/>
 
