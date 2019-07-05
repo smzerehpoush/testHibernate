@@ -12,10 +12,10 @@
         <property name="connection.password">123456</property>
         <!--<property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>-->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <mapping class="com.testHibernate.oneToOne.Address"/>
         <mapping class="com.testHibernate.oneToOne.Member"/>
 
