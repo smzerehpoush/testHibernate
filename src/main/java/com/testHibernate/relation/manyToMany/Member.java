@@ -1,4 +1,4 @@
-package com.testHibernate.manyToMany;
+package com.testHibernate.relation.manyToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 

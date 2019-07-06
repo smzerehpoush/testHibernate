@@ -1,19 +1,27 @@
-package com.testHibernate.oneToMany;
+package com.testHibernate.relation.oneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
-@Entity(name = "OTM_Memeber")
 @Table
-public class Member {
+@Entity(name = "OTM_MemberType")
+public class MemberType {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
+    @ManyToOne
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public String getId() {
         return id;

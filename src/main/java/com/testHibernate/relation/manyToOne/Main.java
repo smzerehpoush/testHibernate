@@ -1,7 +1,6 @@
-package com.testHibernate.manyToMany;
+package com.testHibernate.relation.manyToOne;
 
 import com.testHibernate.HibernateUtil;
-import com.testHibernate.oneToMany.MemberType;
 import org.hibernate.Session;
 
 public class Main {
@@ -10,11 +9,10 @@ public class Main {
         session.getTransaction().begin();
         Member member = new Member();
         member.setName("ali");
-        Degree degree = new Degree();
-        degree.setName("senior");
-        member.getDegrees().add(degree);
+        MemberType memberType = new MemberType();
+        memberType.setName("VIP");
+        member.getMemberType().add(memberType);
         session.save(member);
-        session.save(degree);
         session.getTransaction().commit();
         session.close();
     }

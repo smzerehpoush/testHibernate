@@ -17,21 +17,30 @@
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 
+        <mapping class="com.testHibernate.inheritance.tablePerClass.User"/>
+        <mapping class="com.testHibernate.inheritance.tablePerClass.Developer"/>
+
+        <mapping class="com.testHibernate.inheritance.joined.User"/>
+        <mapping class="com.testHibernate.inheritance.joined.Developer"/>
+
+        <mapping class="com.testHibernate.inheritance.singleTable.User"/>
+        <mapping class="com.testHibernate.inheritance.singleTable.Developer"/>
+
         <mapping class="com.testHibernate.hql.Member"/>
 
-        <mapping class="com.testHibernate.embedded.Address"/>
-        <mapping class="com.testHibernate.embedded.Member"/>
+        <mapping class="com.testHibernate.relation.embedded.Address"/>
+        <mapping class="com.testHibernate.relation.embedded.Member"/>
 
-        <mapping class="com.testHibernate.oneToOne.Address"/>
-        <mapping class="com.testHibernate.oneToOne.Member"/>
+        <mapping class="com.testHibernate.relation.oneToOne.Address"/>
+        <mapping class="com.testHibernate.relation.oneToOne.Member"/>
 
-        <mapping class="com.testHibernate.oneToMany.Member"/>
-        <mapping class="com.testHibernate.oneToMany.MemberType"/>
+        <mapping class="com.testHibernate.relation.oneToMany.Member"/>
+        <mapping class="com.testHibernate.relation.oneToMany.MemberType"/>
 
-        <mapping class="com.testHibernate.manyToOne.Member"/>
-        <mapping class="com.testHibernate.manyToOne.MemberType"/>
+        <mapping class="com.testHibernate.relation.manyToOne.Member"/>
+        <mapping class="com.testHibernate.relation.manyToOne.MemberType"/>
 
-        <mapping class="com.testHibernate.manyToMany.Member"/>
-        <mapping class="com.testHibernate.manyToMany.Degree"/>
+        <mapping class="com.testHibernate.relation.manyToMany.Member"/>
+        <mapping class="com.testHibernate.relation.manyToMany.Degree"/>
     </session-factory>
 </hibernate-configuration>

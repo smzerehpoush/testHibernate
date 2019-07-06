@@ -1,4 +1,4 @@
-package com.testHibernate.oneToOne;
+package com.testHibernate.relation.oneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 

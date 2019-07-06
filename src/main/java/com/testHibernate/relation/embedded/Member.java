@@ -1,28 +1,26 @@
-package com.testHibernate.manyToOne;
+package com.testHibernate.relation.embedded;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
-@Entity(name = "MTO_Memeber")
 @Table
+@Entity(name = "E_Member")
 public class Member {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<MemberType> memberType = new HashSet<>();
+    @Embedded
+    private Address address;
 
-    public Set<MemberType> getMemberType() {
-        return memberType;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setMemberType(Set<MemberType> memberType) {
-        this.memberType = memberType;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getId() {

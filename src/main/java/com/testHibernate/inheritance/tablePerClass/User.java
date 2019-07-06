@@ -1,13 +1,13 @@
-package com.testHibernate.manyToOne;
+package com.testHibernate.inheritance.tablePerClass;
 
-import com.testHibernate.oneToOne.Address;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+@Entity(name = "TPC_User")
 @Table
-@Entity(name = "MTO_MemberType")
-public class MemberType {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class User {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -28,5 +28,12 @@ public class MemberType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User() {
     }
 }

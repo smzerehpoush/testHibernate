@@ -1,6 +1,4 @@
-package com.testHibernate.embedded;
-
-import org.hibernate.annotations.GenericGenerator;
+package com.testHibernate.relation.embedded;
 
 import javax.persistence.*;
 

@@ -1,27 +1,18 @@
-package com.testHibernate.embedded;
+package com.testHibernate.inheritance.joined;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+@Entity(name = "Joined_User")
 @Table
-@Entity(name = "E_Member")
-public class Member {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @Embedded
-    private Address address;
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public String getId() {
         return id;
@@ -37,5 +28,12 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User() {
     }
 }

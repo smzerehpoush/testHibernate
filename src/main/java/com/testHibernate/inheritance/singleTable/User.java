@@ -1,27 +1,18 @@
-package com.testHibernate.oneToOne;
+package com.testHibernate.inheritance.singleTable;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+@Entity(name = "Single_User")
 @Table
-@Entity(name = "OTO_Member")
-public class Member {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class User {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @OneToOne
-    private Address address;
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public String getId() {
         return id;
@@ -37,5 +28,12 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User() {
     }
 }

@@ -1,26 +1,28 @@
-package com.testHibernate.oneToMany;
+package com.testHibernate.relation.manyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity(name = "MTO_Memeber")
 @Table
-@Entity(name = "OTM_MemberType")
-public class MemberType {
+public class Member {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @ManyToOne
-    private Member member;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<MemberType> memberType = new HashSet<>();
 
-    public Member getMember() {
-        return member;
+    public Set<MemberType> getMemberType() {
+        return memberType;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMemberType(Set<MemberType> memberType) {
+        this.memberType = memberType;
     }
 
     public String getId() {
