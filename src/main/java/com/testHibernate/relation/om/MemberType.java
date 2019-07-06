@@ -1,18 +1,17 @@
-package com.testHibernate.relation.oneToMany;
+package com.testHibernate.relation.om;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Table
-@Entity(name = "OTM_MemberType")
+@Entity(name = "OM_MemberType")
 public class MemberType {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @JoinColumn(name = "member_id")
     @ManyToOne
     private Member member;
 

@@ -1,4 +1,4 @@
-package com.testHibernate.relation.manyToOne;
+package com.testHibernate.relation.om;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "MTO_Memeber")
+@Entity(name = "OM_Memeber")
 @Table
 public class Member {
     @Id
@@ -14,9 +14,6 @@ public class Member {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
-    @JoinTable(name = "MTO_Member_MemberType",
-            joinColumns = {@JoinColumn(name = "id_memberType")},
-            inverseJoinColumns = {@JoinColumn(name = "id_member")})
     @OneToMany(cascade = CascadeType.ALL)
     private Set<MemberType> memberType = new HashSet<>();
 

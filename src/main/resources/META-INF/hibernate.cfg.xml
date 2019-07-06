@@ -40,6 +40,9 @@
         <mapping class="com.testHibernate.relation.manyToOne.Member"/>
         <mapping class="com.testHibernate.relation.manyToOne.MemberType"/>
 
+        <mapping class="com.testHibernate.relation.om.Member"/>
+        <mapping class="com.testHibernate.relation.om.MemberType"/>
+
         <mapping class="com.testHibernate.relation.manyToMany.Member"/>
         <mapping class="com.testHibernate.relation.manyToMany.Degree"/>
     </session-factory>
